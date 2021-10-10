@@ -13,6 +13,7 @@ import { CryptoDataService } from '../service/crypto.service';
 export class CryptoComponent implements OnInit {
 
   crypto: Crypto[] = [];
+  gold: Crypto[] = [];
 
   constructor(public dialog: MatDialog,private cryptoService: CryptoDataService) {}
 
@@ -20,9 +21,21 @@ export class CryptoComponent implements OnInit {
 
     let listOfCrypto = this.cryptoService.getAllCrypto();
 
+	let goldPrice = this.cryptoService.getLastGoldGramPrice();
+	
+	let gold: Crypto = {
+    	crypto: '',
+    	price: 0
+   	};
+
     listOfCrypto.forEach(item =>{
       this.crypto.push(...item);
     })
+
+	goldPrice.subscribe((data:any) => {
+      gold = data;
+	  this.gold[0] = gold;
+	});
 
   }
 

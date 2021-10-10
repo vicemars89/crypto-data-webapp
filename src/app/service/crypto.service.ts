@@ -18,4 +18,8 @@ export class CryptoDataService {
     return this.http.get<Crypto[]>(this.api+"every-crypto-eur")
   }
 
+  getLastGoldGramPrice(): Observable<Crypto>{
+    return this.http.get<Crypto>(this.api+"/gold-eur?gram=true")
+  }
+
 }
