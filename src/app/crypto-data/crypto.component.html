@@ -1,0 +1,18 @@
+<div>
+<mat-grid-list cols="3" rowHeight="250">
+  <mat-grid-tile *ngFor="let item of crypto"
+    ><div style="width: 10rem;">
+<!--       <img class="card-img-top" (click)="openDialog(item.name, item.image)" [src]="item.image"> -->
+      <div>
+        <h3 class="card-title">{{item.crypto}}</h3>
+        <p class="card-text">{{item.price.toString().replace('.',',')}}</p>
+      </div>
+<!--       <ul class="list-group list-group-flush"> -->
+<!--         <li class="list-group-item">Size: {{item.size}}</li> -->
+<!--         <li class="list-group-item">Condition: {{item.conditions}}</li> -->
+<!--         <li class="list-group-item">Color: {{item.color}}</li> -->
+<!--       </ul> -->
+    </div></mat-grid-tile
+  >
+</mat-grid-list>
+</div>
